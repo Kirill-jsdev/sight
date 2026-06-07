@@ -1,0 +1,605 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Результаты обследования зрения — Проект «Счастье видеть»</title>
+  <meta name="description" content="Узнайте результаты обследования зрения вашего ребёнка и получите рекомендации офтальмолога" />
+  <meta name="theme-color" content="#0A1628" />
+  <meta property="og:title" content="Результаты обследования зрения — Проект «Счастье видеть»" />
+  <meta property="og:description" content="Узнайте результаты обследования зрения вашего ребёнка и получите рекомендации офтальмолога" />
+  <meta property="og:type" content="website" />
+  <!-- GA4: замените G-XXXXXXXXXX на ваш реальный Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="#top" class="logo">
+      <div class="logo-mark">
+        <img src="images/%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%20%D0%A1%D0%92%20%D0%BB%D0%BE%D0%B3%D0%BE.png" alt="Счастье Видеть" />
+      </div>
+    </a>
+    <nav class="header-nav">
+      <a href="#zones">Результаты</a>
+      <a href="#exercises">Упражнения</a>
+      <a href="#contact">Вопросы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a href="#contact" class="btn btn-header desktop-only" data-ga="header_cta">Написать →</a>
+    <button class="burger" id="burger" aria-label="Меню" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#zones" onclick="closeMobileNav()">Результаты</a>
+    <a href="#exercises" onclick="closeMobileNav()">Упражнения</a>
+    <a href="#contact" onclick="closeMobileNav()">Вопросы</a>
+    <a href="#contacts" onclick="closeMobileNav()">Контакты</a>
+    <a href="#contact" class="btn btn-header" onclick="closeMobileNav()">Написать →</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="pulse-dot"></span>
+      Проект «Счастье видеть» · Обследование зрения детей
+    </div>
+    <h1 class="hero-title">
+      Вы получили результаты<br>
+      <em>обследования зрения</em>
+    </h1>
+    <p class="hero-desc">
+      Ваш ребёнок прошёл обследование в рамках проекта «Счастье видеть».<br>
+      На этой странице — всё необходимое: как читать результаты и что делать дальше.
+    </p>
+    <div class="hero-checklist">
+      <div class="hcl-item">
+        <span class="hcl-icon hcl-icon--card">📋</span>
+        <span>Результаты напечатаны на карточке в конверте</span>
+      </div>
+      <div class="hcl-item">
+        <span class="hcl-icon hcl-icon--check">✓</span>
+        <span>Как читать результаты</span>
+      </div>
+      <div class="hcl-item">
+        <span class="hcl-icon hcl-icon--check">✓</span>
+        <span>Что означает каждая зона</span>
+      </div>
+      <div class="hcl-item">
+        <span class="hcl-icon hcl-icon--check">✓</span>
+        <span>Что делать дальше</span>
+      </div>
+      <div class="hcl-item">
+        <span class="hcl-icon hcl-icon--check">✓</span>
+        <span>Какие упражнения рекомендуются</span>
+      </div>
+    </div>
+    <div class="hero-actions">
+      <a href="#zones" class="btn btn-accent" data-ga="hero_cta">Узнать, что означают результаты ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- КАК ЧИТАТЬ КАРТОЧКУ -->
+<section class="section section--light" id="how-to-read">
+  <div class="container">
+    <div class="section-label">Как читать</div>
+    <h2 class="section-heading">Как читать карточку результатов</h2>
+    <p class="section-sub">На карточке вашего ребёнка есть цветной кружок — он показывает зону результата.</p>
+    <div class="card-guide">
+      <div class="card-mock-wrap">
+        <div class="card-mock">
+          <div class="cm-top">
+            <span class="cm-logo-ico">👁️</span>
+            <span class="cm-logo-txt">Счастье Видеть</span>
+          </div>
+          <div class="cm-divider"></div>
+          <div class="cm-child-name">Имя Ребёнка</div>
+          <div class="cm-school">Школа № ___</div>
+          <div class="cm-result-row">
+            <div class="cm-dot-demo"></div>
+            <span class="cm-zone-text">Зелёная зона</span>
+          </div>
+          <div class="cm-hint-arrow">← найдите этот кружок</div>
+        </div>
+      </div>
+      <div class="card-zones-legend">
+        <div class="czl-item czl-green">
+          <div class="czl-dot"></div>
+          <div class="czl-info">
+            <strong>Зелёный кружок</strong>
+            <span>Зрение в норме — наблюдайтесь раз в год</span>
+          </div>
+        </div>
+        <div class="czl-item czl-yellow">
+          <div class="czl-dot"></div>
+          <div class="czl-info">
+            <strong>Жёлтый кружок</strong>
+            <span>Требуется коррекция — запишитесь к врачу</span>
+          </div>
+        </div>
+        <div class="czl-item czl-red">
+          <div class="czl-dot"></div>
+          <div class="czl-info">
+            <strong>Красный кружок</strong>
+            <span>Требуется лечение — обратитесь срочно</span>
+          </div>
+        </div>
+        <div style="margin-top:20px;">
+          <a href="#zones" class="btn btn-accent" data-ga="how_read_cta">Перейти к рекомендациям ↓</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ТРИ ЗОНЫ -->
+<section class="section" id="zones">
+  <div class="container">
+    <div class="section-label">Результаты обследования</div>
+    <h2 class="section-heading">Три зоны результатов</h2>
+    <p class="section-sub">Посмотрите на цвет кружка на карточке вашего ребёнка и выберите свою зону ниже.</p>
+
+    <div class="zones-tabs" role="tablist">
+      <button class="zone-tab zone-tab--green active" id="tab-green" role="tab" aria-selected="true" aria-controls="panel-green" onclick="switchZone('green')">
+        <span class="zone-tab-dot dot-green"></span> Зелёная зона
+      </button>
+      <button class="zone-tab zone-tab--yellow" id="tab-yellow" role="tab" aria-selected="false" aria-controls="panel-yellow" onclick="switchZone('yellow')">
+        <span class="zone-tab-dot dot-yellow"></span> Жёлтая зона
+      </button>
+      <button class="zone-tab zone-tab--red" id="tab-red" role="tab" aria-selected="false" aria-controls="panel-red" onclick="switchZone('red')">
+        <span class="zone-tab-dot dot-red"></span> Красная зона
+      </button>
+    </div>
+
+    <div class="zone-panel active" id="panel-green" role="tabpanel" aria-labelledby="tab-green">
+      <div class="zone-card zone-card--green">
+        <div class="zone-card-hdr">
+          <div class="zone-emoji">✅</div>
+          <div>
+            <div class="zone-tag-label">Зелёная зона</div>
+            <h3 class="zone-card-title">Зрение в норме</h3>
+          </div>
+        </div>
+        <div class="zone-card-body">
+          <p class="zone-card-desc">Отличная новость! Зрение вашего ребёнка соответствует возрастной норме. Соблюдайте простые правила, чтобы сохранить его здоровым.</p>
+          <ul class="zone-list">
+            <li><span>📅</span><span><strong>Плановое обследование раз в год</strong> — посещайте офтальмолога ежегодно для контроля.</span></li>
+            <li><span>⏱️</span><span><strong>Правило 20-30-20</strong> — каждые 20 мин за экраном делайте перерыв 30 сек, смотря вдаль (20 м).</span></li>
+            <li><span>📵</span><span><strong>Ограничьте экранное время</strong> — не более 1–2 часов в день для детей до 12 лет.</span></li>
+            <li><span>💡</span><span><strong>Достаточно света при чтении</strong> — хорошее освещение без бликов и теней.</span></li>
+            <li><span>🌳</span><span><strong>Активный отдых на улице</strong> — 2+ часа в день снижают риск развития миопии.</span></li>
+          </ul>
+          <a href="#exercises" class="btn btn-zone-green" data-ga="green_exercises">👁️ Смотреть упражнения для глаз →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="zone-panel" id="panel-yellow" role="tabpanel" aria-labelledby="tab-yellow">
+      <div class="zone-card zone-card--yellow">
+        <div class="zone-card-hdr">
+          <div class="zone-emoji">⚠️</div>
+          <div>
+            <div class="zone-tag-label">Жёлтая зона</div>
+            <h3 class="zone-card-title">Требуется коррекция</h3>
+          </div>
+        </div>
+        <div class="zone-card-body">
+          <div class="zone-alert zone-alert--yellow">⚡ СРОЧНО: Запишитесь к офтальмологу в течение 2–4 недель</div>
+          <p class="zone-card-desc">Выявлены признаки нарушения зрения, которые требуют коррекции. При своевременном обращении это хорошо поддаётся лечению.</p>
+          <ul class="zone-list">
+            <li><span>🗓️</span><span><strong>Запишитесь на полное обследование</strong> — офтальмолог проверит остроту зрения и подберёт коррекцию.</span></li>
+            <li><span>👓</span><span><strong>Подбор очков или линз</strong> — правильная коррекция улучшает качество жизни ребёнка.</span></li>
+            <li><span>🔄</span><span><strong>Контроль каждые 6 месяцев</strong> — детское зрение меняется быстро, нужен регулярный контроль.</span></li>
+            <li><span>📋</span><span><strong>Уточните льготные программы</strong> — спросите нас о программах поддержки для детей.</span></li>
+          </ul>
+          <div class="zone-btns">
+            <a href="#contacts" class="btn btn-zone-red" data-ga="yellow_appointment">🗓️ Записаться к врачу →</a>
+            <a href="#exercises" class="btn btn-zone-outline" data-ga="yellow_exercises">👁️ Упражнения</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="zone-panel" id="panel-red" role="tabpanel" aria-labelledby="tab-red">
+      <div class="zone-card zone-card--red">
+        <div class="zone-card-hdr">
+          <div class="zone-emoji">🚨</div>
+          <div>
+            <div class="zone-tag-label">Красная зона</div>
+            <h3 class="zone-card-title">Требуется лечение</h3>
+          </div>
+        </div>
+        <div class="zone-card-body">
+          <div class="zone-alert zone-alert--red">🚨 СРОЧНО: Обратитесь к офтальмологу в течение 3–7 дней</div>
+          <p class="zone-card-desc">Результаты указывают на серьёзное нарушение зрения, требующее немедленного внимания. Ранняя помощь значительно улучшает прогноз.</p>
+          <ul class="zone-list">
+            <li><span>🏥</span><span><strong>Экстренная консультация</strong> — не позднее 3–7 дней с момента получения результатов.</span></li>
+            <li><span>🔬</span><span><strong>Расширенная диагностика</strong> — биомикроскопия, офтальмоскопия, измерение ВГД.</span></li>
+            <li><span>💊</span><span><strong>Программы лечения</strong> — врач расскажет о доступных терапевтических и аппаратных методах.</span></li>
+            <li><span>📞</span><span><strong>Экстренная линия проекта</strong> — звоните прямо сейчас, поможем записаться срочно.</span></li>
+          </ul>
+          <div class="zone-btns">
+            <a href="tel:+998781293030" class="btn btn-zone-red" data-ga="red_call">🚨 Позвонить сейчас →</a>
+            <a href="#contact" class="btn btn-zone-outline" data-ga="red_form">📋 Записаться онлайн</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- УПРАЖНЕНИЯ -->
+<section class="section section--light" id="exercises">
+  <div class="container">
+    <div class="section-label">Профилактика</div>
+    <h2 class="section-heading">5 упражнений для здоровья глаз</h2>
+    <p class="section-sub">Выполняйте 2–3 раза в день. Каждое упражнение занимает 1–2 минуты. Подходят детям с 3 лет.</p>
+
+    <div class="rule-card">
+      <div class="rule-nums">
+        <div class="rule-num-item">
+          <div class="rni-num">20</div>
+          <div class="rni-lbl">минут</div>
+        </div>
+        <div class="rule-sep">—</div>
+        <div class="rule-num-item">
+          <div class="rni-num">30</div>
+          <div class="rni-lbl">секунд</div>
+        </div>
+        <div class="rule-sep">—</div>
+        <div class="rule-num-item">
+          <div class="rni-num">20</div>
+          <div class="rni-lbl">метров</div>
+        </div>
+      </div>
+      <div class="rule-body">
+        <h3 class="rule-title">Правило 20-30-20</h3>
+        <p>Каждые 20 минут работы за экраном делайте перерыв на 30 секунд — смотрите на предмет в 20 метрах или в окно. Снимает усталость и предотвращает перегрузку зрения.</p>
+      </div>
+    </div>
+
+    <div class="exercises-grid">
+      <div class="ex-card">
+        <div class="ex-icon">👁️</div>
+        <div class="ex-num">Упражнение 1</div>
+        <div class="ex-name">«Горячо-холодно»</div>
+        <p class="ex-desc">Моргание для увлажнения и расслабления глаз.</p>
+        <ol class="ex-steps">
+          <li>Зажмурьтесь изо всех сил на 3 сек</li>
+          <li>Широко откройте глаза на 3 сек</li>
+          <li>Часто помигайте 15–20 раз</li>
+          <li>Повторите цикл 5 раз</li>
+        </ol>
+        <div class="ex-freq">🔁 2–3 раза в день</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-icon">🌀</div>
+        <div class="ex-num">Упражнение 2</div>
+        <div class="ex-name">«Восьмёрка»</div>
+        <p class="ex-desc">Движение глаз по траектории цифры 8.</p>
+        <ol class="ex-steps">
+          <li>Представьте перед собой большую цифру 8</li>
+          <li>Медленно «обводите» её взглядом</li>
+          <li>По часовой стрелке 5 раз</li>
+          <li>Против часовой стрелки 5 раз</li>
+        </ol>
+        <div class="ex-freq">🔁 2–3 раза в день</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-icon">🙌</div>
+        <div class="ex-num">Упражнение 3</div>
+        <div class="ex-name">«Пальминг»</div>
+        <p class="ex-desc">Прогревание глаз теплом ладоней.</p>
+        <ol class="ex-steps">
+          <li>Потрите ладони друг о друга 20 сек</li>
+          <li>Закройте глаза тёплыми ладонями</li>
+          <li>Не давите на глаза — только тепло</li>
+          <li>Побудьте так 1–2 минуты</li>
+        </ol>
+        <div class="ex-freq">🔁 1–2 раза в день</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-icon">🎯</div>
+        <div class="ex-num">Упражнение 4</div>
+        <div class="ex-name">«Фокусировка»</div>
+        <p class="ex-desc">Тренировка хрусталика — переключение взгляда.</p>
+        <ol class="ex-steps">
+          <li>Палец в 30 см от лица — 5 сек</li>
+          <li>Предмет в 3–5 метрах — 5 сек</li>
+          <li>Самый дальний предмет — 5 сек</li>
+          <li>Повторите цикл 10 раз</li>
+        </ol>
+        <div class="ex-freq">🔁 2–3 раза в день</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-icon">⚫</div>
+        <div class="ex-num">Упражнение 5</div>
+        <div class="ex-name">«Чёрная точка»</div>
+        <p class="ex-desc">Концентрация взгляда. Тренирует центральное зрение.</p>
+        <ol class="ex-steps">
+          <li>Нарисуйте точку 5 мм на бумаге</li>
+          <li>Держите на 30 см от глаз</li>
+          <li>Смотрите не моргая 30–60 сек</li>
+          <li>Закройте глаза, восстановите мысленно</li>
+        </ol>
+        <div class="ex-freq">🔁 1–2 раза в день</div>
+      </div>
+    </div>
+    <p class="exercises-hint">← Листайте карточки →</p>
+  </div>
+</section>
+
+<!-- ФОРМА ОБРАТНОЙ СВЯЗИ -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="contact-layout">
+
+      <div class="contact-info-col">
+        <div class="section-label">Обратная связь</div>
+        <h2 class="section-heading">Остались вопросы?<br>Напишите нам</h2>
+        <p class="contact-sub">Наргиза ответит на ваш вопрос в течение 24 часов.</p>
+        <div class="contact-person-card">
+          <div class="cp-avatar">Н</div>
+          <div>
+            <div class="cp-name">Наргиза</div>
+            <div class="cp-role">Менеджер проекта «Счастье Видеть»</div>
+          </div>
+        </div>
+        <div class="contact-quick-links">
+          <a href="https://t.me/dmcNargiza" target="_blank" rel="noopener" class="cql-btn" data-ga="form_telegram">
+            <span>✈️</span> Написать
+          </a>
+          <a href="mailto:schastyevidet@gmail.com" class="cql-btn" data-ga="form_email">
+            <span>✉️</span> schastyevidet@gmail.com
+          </a>
+          <a href="tel:+998903520504" class="cql-btn" data-ga="form_phone">
+            <span>📞</span> +998 90 352 05 04
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-form-col">
+        <div id="form-content">
+          <form name="feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="submitFeedbackForm(event)" novalidate>
+            <input type="hidden" name="form-name" value="feedback" />
+            <p style="display:none"><label>Не заполняйте: <input name="bot-field" /></label></p>
+
+            <div class="form-row">
+              <label class="form-label" for="fullname">ФИО родителя <span class="req">*</span></label>
+              <input class="form-input" type="text" id="fullname" name="fullname" placeholder="Иванова Мария Ивановна" required autocomplete="name" />
+            </div>
+            <div class="form-row">
+              <label class="form-label" for="phone">Номер телефона <span class="req">*</span></label>
+              <input class="form-input" type="tel" id="phone" name="phone" placeholder="+998 XX XXX XX XX" required autocomplete="tel" oninput="formatPhoneInput(this)" />
+              <span class="form-hint">Формат: +998 90 123 45 67</span>
+            </div>
+            <div class="form-row">
+              <label class="form-label" for="email">Email <span class="opt">(необязательно)</span></label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="email@example.com" autocomplete="email" />
+            </div>
+            <div class="form-row">
+              <label class="form-label" for="school">Школа ребёнка <span class="opt">(необязательно)</span></label>
+              <input class="form-input" type="text" id="school" name="school" placeholder="Например: Школа №15, Ташкент" />
+            </div>
+            <div class="form-row">
+              <label class="form-label" for="topic">Тема вопроса</label>
+              <select class="form-input form-select" id="topic" name="topic">
+                <option value="">Выберите тему...</option>
+                <option value="results">Результаты ребёнка</option>
+                <option value="glasses">Как правильно подобрать очки</option>
+                <option value="appointment">Запись к врачу</option>
+                <option value="support">Программы поддержки</option>
+                <option value="other">Другое</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label class="form-label" for="message">Сообщение <span class="req">*</span></label>
+              <textarea class="form-input form-textarea" id="message" name="message" placeholder="Опишите ваш вопрос подробнее..." required maxlength="1000" oninput="updateCharCount(this)"></textarea>
+              <span class="form-counter"><span id="charCount">0</span> / 1000 символов</span>
+            </div>
+            <div class="form-row form-consent-row">
+              <label class="consent-label">
+                <input type="checkbox" id="consent" name="consent" required />
+                <span>Я согласен(а) с обработкой персональных данных</span>
+              </label>
+            </div>
+            <button type="submit" class="btn btn-accent btn-block" data-ga="form_submit">Отправить сообщение →</button>
+          </form>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <div class="fs-icon">✅</div>
+          <h3>Спасибо! Сообщение отправлено</h3>
+          <p>Наргиза ответит в течение 24 часов.<br>На вашу почту придёт подтверждение.</p>
+          <div class="fs-links">
+            <a href="https://t.me/dmcNargiza" target="_blank" rel="noopener" class="cql-btn">✈️ Написать</a>
+            <a href="mailto:schastyevidet@gmail.com" class="cql-btn">✉️ Email</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- КОНТАКТЫ -->
+<section class="section section--light" id="contacts">
+  <div class="container">
+    <div class="section-label">Связаться с нами</div>
+    <h2 class="section-heading">Быстрые ссылки и контакты</h2>
+
+    <div class="quick-links-grid">
+      <a href="https://t.me/dmcNargiza" target="_blank" rel="noopener" class="quick-link-card" data-ga="quick_telegram">
+        <div class="qlc-icon">📱</div>
+        <div class="qlc-title">Написать Наргизе</div>
+        <div class="qlc-sub">Ответим в течение 1 часа</div>
+      </a>
+      <a href="tel:+998781293030" class="quick-link-card" data-ga="quick_call">
+        <div class="qlc-icon">📞</div>
+        <div class="qlc-title">Call center</div>
+        <div class="qlc-sub">+998 78 129 30 30</div>
+      </a>
+      <a href="#contact" class="quick-link-card" data-ga="quick_form">
+        <div class="qlc-icon">📋</div>
+        <div class="qlc-title">Записаться к врачу</div>
+        <div class="qlc-sub">Оставьте заявку онлайн</div>
+      </a>
+      <a href="https://korishbaxti.uz" target="_blank" rel="noopener" class="quick-link-card" data-ga="quick_site">
+        <div class="qlc-icon">🌐</div>
+        <div class="qlc-title">Сайт проекта</div>
+        <div class="qlc-sub">korishbaxti.uz</div>
+      </a>
+    </div>
+
+    <div class="contacts-detail-grid">
+      <div class="contacts-col">
+        <h3 class="contacts-col-title">Контактная информация</h3>
+        <div class="cdi-row">
+          <span class="cdi-ico">📞</span>
+          <div><div class="cdi-label">Call center</div><a href="tel:+998781293030" class="cdi-val">+998 78 129 30 30</a></div>
+        </div>
+        <div class="cdi-row">
+          <span class="cdi-ico">✉️</span>
+          <div><div class="cdi-label">Email проекта</div><a href="mailto:info@korishbaxti.uz" class="cdi-val">info@korishbaxti.uz</a></div>
+        </div>
+        <div class="cdi-row">
+          <span class="cdi-ico">📱</span>
+          <div><div class="cdi-label">Написать менеджеру</div><a href="https://t.me/dmcNargiza" target="_blank" rel="noopener" class="cdi-val">Написать</a></div>
+        </div>
+        <div class="cdi-row">
+          <span class="cdi-ico">⏰</span>
+          <div><div class="cdi-label">Рабочие часы</div><div class="cdi-val">Пн–Сб: 08:00–20:00<br>Вс: 08:00–17:00</div></div>
+        </div>
+      </div>
+      <div class="contacts-col">
+        <h3 class="contacts-col-title">Клиники-партнёры</h3>
+        <div class="clinic-item-sm">
+          <div class="cis-badge">ТАШКЕНТ · ЦЕНТРАЛЬНАЯ</div>
+          <div class="cis-name">DMClinic — Центральная</div>
+          <div class="cis-addr">📍 ул. Буюк Ипак Йули, 376</div>
+          <div class="cis-phone">📞 <a href="tel:+998781483030">+998 78 148 30 30</a></div>
+          <a href="https://goo.gl/maps/xHVwHSEMKm52" target="_blank" rel="noopener" class="cis-map">Открыть на карте →</a>
+        </div>
+        <div class="clinic-item-sm">
+          <div class="cis-badge">ТАШКЕНТ · ДАРХОН</div>
+          <div class="cis-name">DMClinic — Дархон</div>
+          <div class="cis-addr">📍 Мирзо-Улугбекский р-н, 6-й проезд Ниёзбек Йули, 16</div>
+          <div class="cis-phone">📞 <a href="tel:+998956090303">+998 95 609 03 03</a></div>
+          <a href="https://maps.app.goo.gl/v2AAJNmcmGYcmtMq5" target="_blank" rel="noopener" class="cis-map">Открыть на карте →</a>
+        </div>
+        <div class="clinic-item-sm">
+          <div class="cis-badge">КАРАКАЛПАКСТАН</div>
+          <div class="cis-name">DMClinic — Беруний</div>
+          <div class="cis-addr">📍 Берунийский район, ул. Кат</div>
+          <div class="cis-phone">📞 <a href="tel:+998615245003">+998 61 524 50 03</a></div>
+          <a href="https://goo.su/9fm3" target="_blank" rel="noopener" class="cis-map">Открыть на карте →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- О ПРОЕКТЕ -->
+<section class="section section--dark" id="about">
+  <div class="container">
+    <div class="about-layout">
+      <div class="about-logo-col">
+        <div class="about-logo-mark">
+          <img src="images/%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%20%D0%A1%D0%92%20%D0%BB%D0%BE%D0%B3%D0%BE.png" alt="Счастье Видеть" loading="lazy" />
+        </div>
+        <div class="about-logo-name">Счастье Видеть</div>
+        <div class="about-logo-sub">Korishbaxti</div>
+      </div>
+      <div class="about-content-col">
+        <div class="section-label" style="color:#93C5FD;">О проекте</div>
+        <h2 class="section-heading">О проекте «Счастье Видеть»</h2>
+        <p class="about-text">Проект реализуется Ассоциацией офтальмологов Узбекистана с целью раннего выявления проблем со зрением у детей в возрасте от 3 до 17 лет. За 5 лет работы мы охватили более 50 000 детей по всей стране.</p>
+        <p class="about-text">Наша миссия — чтобы каждый ребёнок мог видеть мир чётко и ярко. Мы проводим бесплатные обследования в школах, направляем детей к специалистам и поддерживаем семьи на каждом этапе лечения.</p>
+        <div class="about-stats">
+          <div class="about-stat-item">
+            <div class="asi-num">50 000+</div>
+            <div class="asi-lbl">детей обследовано</div>
+          </div>
+          <div class="about-stat-div"></div>
+          <div class="about-stat-item">
+            <div class="asi-num">5 лет</div>
+            <div class="asi-lbl">работы проекта</div>
+          </div>
+          <div class="about-stat-div"></div>
+          <div class="about-stat-item">
+            <div class="asi-num">~30%</div>
+            <div class="asi-lbl">детей имеют нарушения</div>
+          </div>
+        </div>
+        <a href="https://korishbaxti.uz" target="_blank" rel="noopener" class="btn btn-ghost" data-ga="about_more">Подробнее о проекте →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="logo-mark footer-logo-mark">
+            <img src="images/%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%20%D0%A1%D0%92%20%D0%BB%D0%BE%D0%B3%D0%BE.png" alt="Счастье Видеть" loading="lazy" />
+          </div>
+          <div>
+            <div class="logo-name">Счастье Видеть</div>
+            <div class="logo-tagline">Ассоциация офтальмологов</div>
+          </div>
+        </div>
+        <p class="footer-about">Проект по раннему выявлению проблем со зрением у детей 3–17 лет в Узбекистане.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="fc-title">Навигация</div>
+          <a href="#zones">Результаты обследования</a>
+          <a href="#exercises">Упражнения для глаз</a>
+          <a href="#contact">Задать вопрос</a>
+          <a href="#contacts">Контакты и клиники</a>
+          <a href="#about">О проекте</a>
+        </div>
+        <div class="footer-col">
+          <div class="fc-title">Контакты</div>
+          <a href="tel:+998781293030">+998 78 129 30 30</a>
+          <a href="mailto:info@korishbaxti.uz">info@korishbaxti.uz</a>
+          <a href="https://t.me/dmcNargiza" target="_blank" rel="noopener">Написать</a>
+          <span>г. Ташкент, Узбекистан</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Счастье видеть · korishbaxti.uz</span>
+      <span>Информация носит справочный характер и не заменяет консультацию врача</span>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <a href="tel:+998781293030" class="btn btn-accent" data-ga="sticky_call">📞 Позвонить</a>
+  <a href="#contact" class="btn btn-ghost-sm" data-ga="sticky_form">📋 Написать</a>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
