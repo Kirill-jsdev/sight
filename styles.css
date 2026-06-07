@@ -1104,10 +1104,12 @@ a  { color: inherit; text-decoration: none; }
   flex-direction: column;
   align-items: flex-end;
   gap: 12px;
+  pointer-events: none; /* container is invisible to clicks — only children opt in */
 }
 
 /* Main round button */
 .fab-btn {
+  pointer-events: auto; /* explicitly opt back in */
   width: 62px;
   height: 62px;
   border-radius: 50%;
