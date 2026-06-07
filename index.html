@@ -35,10 +35,10 @@
     <nav class="header-nav">
       <a href="#zones">Результаты</a>
       <a href="#exercises">Упражнения</a>
-      <a href="#contact">Вопросы</a>
-      <a href="#contacts">Контакты</a>
+      <a href="#contact-info">Контакты</a>
+      <a href="#contact">Обратный звонок</a>
     </nav>
-    <a href="#contact" class="btn btn-header desktop-only" data-ga="header_cta">Написать →</a>
+    <a href="#contact" class="btn btn-header desktop-only" data-ga="header_cta">Заказать звонок →</a>
     <button class="burger" id="burger" aria-label="Меню" onclick="toggleMobileNav()">
       <span></span><span></span><span></span>
     </button>
@@ -46,9 +46,9 @@
   <div class="mobile-nav" id="mobileNav">
     <a href="#zones" onclick="closeMobileNav()">Результаты</a>
     <a href="#exercises" onclick="closeMobileNav()">Упражнения</a>
-    <a href="#contact" onclick="closeMobileNav()">Вопросы</a>
-    <a href="#contacts" onclick="closeMobileNav()">Контакты</a>
-    <a href="#contact" class="btn btn-header" onclick="closeMobileNav()">Написать →</a>
+    <a href="#contact-info" onclick="closeMobileNav()">Контакты</a>
+    <a href="#contacts" onclick="closeMobileNav()">Клиники</a>
+    <a href="#contact" class="btn btn-header" onclick="closeMobileNav()">📅 Заказать обратный звонок</a>
   </div>
 </header>
 
@@ -56,13 +56,8 @@
 <section class="hero" id="top">
   <div class="hero-bg-glow"></div>
   <div class="hero-inner">
-    <div class="hero-badge">
-      <span class="pulse-dot"></span>
-      Проект «Счастье видеть» · Обследование зрения детей
-    </div>
     <h1 class="hero-title">
-      Вы получили результаты<br>
-      <em>обследования зрения</em>
+      Уважаемые родители!
     </h1>
     <p class="hero-desc">
       Ваш ребёнок прошёл обследование в рамках проекта «Счастье видеть».<br>
@@ -346,94 +341,110 @@
   </div>
 </section>
 
-<!-- ФОРМА ОБРАТНОЙ СВЯЗИ -->
-<section class="section" id="contact">
+<!-- ПРЯМАЯ СВЯЗЬ -->
+<section class="section" id="contact-info">
   <div class="container">
-    <div class="contact-layout">
+    <div class="section-label">Прямая связь</div>
+    <h2 class="section-heading">Остались вопросы?</h2>
+    <p class="section-sub">Выберите удобный способ — или оставьте заявку и мы перезвоним сами.</p>
 
-      <div class="contact-info-col">
-        <div class="section-label">Обратная связь</div>
-        <h2 class="section-heading">Остались вопросы?<br>Напишите нам</h2>
-        <p class="contact-sub">Наргиза ответит на ваш вопрос в течение 24 часов.</p>
-        <div class="contact-person-card">
-          <div class="cp-avatar">Н</div>
-          <div>
-            <div class="cp-name">Наргиза</div>
-            <div class="cp-role">Менеджер проекта «Счастье Видеть»</div>
+    <div class="contact-person-banner">
+      <div class="cp-avatar">Н</div>
+      <div class="cpb-body">
+        <div class="cp-name">Наргиза</div>
+        <div class="cp-role">Менеджер проекта «Счастье Видеть»</div>
+        <div class="cpb-response">Ответит на ваш вопрос в течение 24 часов</div>
+      </div>
+    </div>
+
+    <div class="contact-methods">
+      <a href="https://t.me/dmcNargiza" target="_blank" rel="noopener" class="contact-method-card" data-ga="info_telegram">
+        <div class="cmc-icon">✈️</div>
+        <div class="cmc-label">Telegram</div>
+        <div class="cmc-val">Написать Наргизе</div>
+      </a>
+      <a href="mailto:schastyevidet@gmail.com" class="contact-method-card" data-ga="info_email">
+        <div class="cmc-icon">✉️</div>
+        <div class="cmc-label">Email</div>
+        <div class="cmc-val">schastyevidet@gmail.com</div>
+      </a>
+      <a href="tel:+998903520504" class="contact-method-card" data-ga="info_phone">
+        <div class="cmc-icon">📞</div>
+        <div class="cmc-label">Телефон</div>
+        <div class="cmc-val">+998 90 352 05 04</div>
+      </a>
+    </div>
+
+    <div class="contact-form-cta-wrap">
+      <div class="cfcw-text">
+        <strong>Хотите, чтобы мы позвонили вам?</strong>
+        <span>Оставьте заявку — Наргиза перезвонит в течение рабочего часа.</span>
+      </div>
+      <a href="#contact" class="btn btn-accent" data-ga="info_to_form">📅 Заказать обратный звонок →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ФОРМА ОБРАТНОГО ЗВОНКА -->
+<section class="section section--light" id="contact">
+  <div class="container">
+    <div class="section-label">Обратный звонок</div>
+    <h2 class="section-heading">Заказать обратный звонок</h2>
+    <p class="section-sub">Заполните форму — мы перезвоним в удобное время.</p>
+
+    <div class="callback-form-wrap">
+      <div id="form-content">
+        <form name="feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="submitFeedbackForm(event)" novalidate>
+          <input type="hidden" name="form-name" value="feedback" />
+          <p style="display:none"><label>Не заполняйте: <input name="bot-field" /></label></p>
+
+          <div class="form-row">
+            <label class="form-label" for="fullname">ФИО родителя <span class="req">*</span></label>
+            <input class="form-input" type="text" id="fullname" name="fullname" placeholder="Иванова Мария Ивановна" required autocomplete="name" />
           </div>
-        </div>
-        <div class="contact-quick-links">
-          <a href="https://t.me/dmcNargiza" target="_blank" rel="noopener" class="cql-btn" data-ga="form_telegram">
-            <span>✈️</span> Написать
-          </a>
-          <a href="mailto:schastyevidet@gmail.com" class="cql-btn" data-ga="form_email">
-            <span>✉️</span> schastyevidet@gmail.com
-          </a>
-          <a href="tel:+998903520504" class="cql-btn" data-ga="form_phone">
-            <span>📞</span> +998 90 352 05 04
-          </a>
+          <div class="form-row">
+            <label class="form-label" for="phone">Номер телефона <span class="req">*</span></label>
+            <input class="form-input" type="tel" id="phone" name="phone" placeholder="+998 XX XXX XX XX" required autocomplete="tel" oninput="formatPhoneInput(this)" />
+            <span class="form-hint">Формат: +998 90 123 45 67</span>
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="school">Школа ребёнка <span class="req">*</span></label>
+            <input class="form-input" type="text" id="school" name="school" placeholder="Например: Школа №15, Ташкент" required />
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="topic">Тема вопроса</label>
+            <select class="form-input form-select" id="topic" name="topic">
+              <option value="callback" selected>Заказать обратный звонок</option>
+              <option value="results">Результаты ребёнка</option>
+              <option value="glasses">Как правильно подобрать очки</option>
+              <option value="appointment">Запись к врачу</option>
+              <option value="support">Программы поддержки</option>
+              <option value="other">Другое</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="message">Комментарий <span class="opt">(необязательно)</span></label>
+            <textarea class="form-input form-textarea" id="message" name="message" placeholder="Уточните удобное время для звонка или задайте вопрос..." maxlength="1000" oninput="updateCharCount(this)"></textarea>
+            <span class="form-counter"><span id="charCount">0</span> / 1000 символов</span>
+          </div>
+          <div class="form-row form-consent-row">
+            <label class="consent-label">
+              <input type="checkbox" id="consent" name="consent" required />
+              <span>Я согласен(а) с обработкой персональных данных</span>
+            </label>
+          </div>
+          <button type="submit" class="btn btn-accent btn-block" data-ga="form_submit">📅 Заказать обратный звонок →</button>
+        </form>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <div class="fs-icon">✅</div>
+        <h3>Заявка принята!</h3>
+        <p>Наргиза перезвонит вам в течение рабочего часа.</p>
+        <div class="fs-links">
+          <a href="https://t.me/dmcNargiza" target="_blank" rel="noopener" class="cql-btn">✈️ Написать</a>
+          <a href="mailto:schastyevidet@gmail.com" class="cql-btn">✉️ Email</a>
         </div>
       </div>
-
-      <div class="contact-form-col">
-        <div id="form-content">
-          <form name="feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="submitFeedbackForm(event)" novalidate>
-            <input type="hidden" name="form-name" value="feedback" />
-            <p style="display:none"><label>Не заполняйте: <input name="bot-field" /></label></p>
-
-            <div class="form-row">
-              <label class="form-label" for="fullname">ФИО родителя <span class="req">*</span></label>
-              <input class="form-input" type="text" id="fullname" name="fullname" placeholder="Иванова Мария Ивановна" required autocomplete="name" />
-            </div>
-            <div class="form-row">
-              <label class="form-label" for="phone">Номер телефона <span class="req">*</span></label>
-              <input class="form-input" type="tel" id="phone" name="phone" placeholder="+998 XX XXX XX XX" required autocomplete="tel" oninput="formatPhoneInput(this)" />
-              <span class="form-hint">Формат: +998 90 123 45 67</span>
-            </div>
-            <div class="form-row">
-              <label class="form-label" for="email">Email <span class="opt">(необязательно)</span></label>
-              <input class="form-input" type="email" id="email" name="email" placeholder="email@example.com" autocomplete="email" />
-            </div>
-            <div class="form-row">
-              <label class="form-label" for="school">Школа ребёнка <span class="opt">(необязательно)</span></label>
-              <input class="form-input" type="text" id="school" name="school" placeholder="Например: Школа №15, Ташкент" />
-            </div>
-            <div class="form-row">
-              <label class="form-label" for="topic">Тема вопроса</label>
-              <select class="form-input form-select" id="topic" name="topic">
-                <option value="">Выберите тему...</option>
-                <option value="results">Результаты ребёнка</option>
-                <option value="glasses">Как правильно подобрать очки</option>
-                <option value="appointment">Запись к врачу</option>
-                <option value="support">Программы поддержки</option>
-                <option value="other">Другое</option>
-              </select>
-            </div>
-            <div class="form-row">
-              <label class="form-label" for="message">Сообщение <span class="req">*</span></label>
-              <textarea class="form-input form-textarea" id="message" name="message" placeholder="Опишите ваш вопрос подробнее..." required maxlength="1000" oninput="updateCharCount(this)"></textarea>
-              <span class="form-counter"><span id="charCount">0</span> / 1000 символов</span>
-            </div>
-            <div class="form-row form-consent-row">
-              <label class="consent-label">
-                <input type="checkbox" id="consent" name="consent" required />
-                <span>Я согласен(а) с обработкой персональных данных</span>
-              </label>
-            </div>
-            <button type="submit" class="btn btn-accent btn-block" data-ga="form_submit">Отправить сообщение →</button>
-          </form>
-        </div>
-        <div class="form-success" id="formSuccess">
-          <div class="fs-icon">✅</div>
-          <h3>Спасибо! Сообщение отправлено</h3>
-          <p>Наргиза ответит в течение 24 часов.<br>На вашу почту придёт подтверждение.</p>
-          <div class="fs-links">
-            <a href="https://t.me/dmcNargiza" target="_blank" rel="noopener" class="cql-btn">✈️ Написать</a>
-            <a href="mailto:schastyevidet@gmail.com" class="cql-btn">✉️ Email</a>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -598,6 +609,7 @@
 <div class="sticky-cta" id="stickyCta">
   <a href="tel:+998781293030" class="btn btn-accent" data-ga="sticky_call">📞 Позвонить</a>
   <a href="#contact" class="btn btn-ghost-sm" data-ga="sticky_form">📋 Написать</a>
+  <a href="#contact" class="btn btn-ghost-sm" data-ga="sticky_callback" onclick="prefillCallbackForm()">📅 Обратный звонок</a>
 </div>
 
 <script src="script.js" defer></script>

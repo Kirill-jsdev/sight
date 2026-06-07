@@ -188,6 +188,12 @@ function submitFeedbackForm(e) {
   });
 }
 
+/* ===== Pre-fill form topic for callback CTA ===== */
+function prefillCallbackForm() {
+  var topic = document.getElementById('topic');
+  if (topic) { topic.value = 'callback'; }
+}
+
 function showFormSuccess() {
   var content = document.getElementById('form-content');
   var success = document.getElementById('formSuccess');
