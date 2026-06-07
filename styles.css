@@ -1084,6 +1084,113 @@ a  { color: inherit; text-decoration: none; }
   color: rgba(255,255,255,.28);
 }
 
+/* ===== PRIVACY MODAL ===== */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0,0,0,.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.open { display: flex; }
+
+.modal-box {
+  background: var(--white);
+  border-radius: var(--radius);
+  max-width: 520px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 16px 56px rgba(0,0,0,.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-hdr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 28px 18px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--white);
+  z-index: 1;
+}
+.modal-hdr h3 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text);
+}
+.modal-close {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: var(--light);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background .15s;
+}
+.modal-close:hover { background: var(--border); }
+
+.modal-body {
+  padding: 24px 28px;
+  font-size: .93rem;
+  line-height: 1.75;
+  color: var(--muted);
+  flex: 1;
+}
+.modal-body p { margin-bottom: 14px; }
+.modal-body p:last-child { margin-bottom: 0; }
+.modal-body strong { color: var(--text); font-weight: 700; }
+
+.modal-footer {
+  padding: 16px 28px 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: flex-end;
+  position: sticky;
+  bottom: 0;
+  background: var(--white);
+}
+
+.consent-link {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+.consent-link:hover { color: var(--accent-hover); text-decoration-style: solid; }
+
+@media (max-width: 560px) {
+  .modal-hdr { padding: 18px 20px 14px; }
+  .modal-body { padding: 20px 20px; }
+  .modal-footer { padding: 14px 20px 20px; }
+}
+
 /* ===== FAB (Floating Action Button) ===== */
 .fab-backdrop {
   display: none;

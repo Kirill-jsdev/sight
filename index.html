@@ -424,7 +424,7 @@
           <div class="form-row form-consent-row">
             <label class="consent-label">
               <input type="checkbox" id="consent" name="consent" required />
-              <span>Я согласен(а) с обработкой персональных данных</span>
+              <span>Я согласен(а) с <button type="button" class="consent-link" onclick="openPrivacyModal()">обработкой персональных данных</button></span>
             </label>
           </div>
           <button type="submit" class="btn btn-accent btn-block" data-ga="form_submit">📅 Заказать обратный звонок →</button>
@@ -598,6 +598,24 @@
     </div>
   </div>
 </footer>
+
+<!-- PRIVACY MODAL -->
+<div class="modal-overlay" id="privacyModal" role="dialog" aria-modal="true"
+     aria-labelledby="privacyModalTitle" onclick="closePrivacyModal(event)">
+  <div class="modal-box">
+    <div class="modal-hdr">
+      <h3 id="privacyModalTitle">Политика конфиденциальности</h3>
+      <button class="modal-close" onclick="closePrivacyModal()" aria-label="Закрыть">×</button>
+    </div>
+    <div class="modal-body">
+      <p><strong>Мы уважаем вашу конфиденциальность.</strong> Данные, которые вы указываете в форме (ФИО и номер телефона), используются исключительно для обратной связи с вами в рамках проекта «Счастье Видеть».</p>
+      <p><strong>Ваши данные не передаются третьим лицам.</strong> Мы не продаём, не передаём и не раскрываем вашу личную информацию никаким сторонним организациям или лицам — ни в коммерческих, ни в каких-либо иных целях.</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-accent" onclick="closePrivacyModal()">Понятно →</button>
+    </div>
+  </div>
+</div>
 
 <!-- FAB -->
 <div class="fab-backdrop" id="fabBackdrop" onclick="closeFabMenu()"></div>

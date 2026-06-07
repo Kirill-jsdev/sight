@@ -193,6 +193,31 @@ function submitFeedbackForm(e) {
   });
 }
 
+/* ===== Privacy modal ===== */
+function openPrivacyModal() {
+  var modal = document.getElementById('privacyModal');
+  if (!modal) return;
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePrivacyModal(e) {
+  if (e && e.target !== e.currentTarget) return; /* click inside box — ignore */
+  var modal = document.getElementById('privacyModal');
+  if (!modal) return;
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function (e) {
+  if (e.key !== 'Escape') return;
+  var modal = document.getElementById('privacyModal');
+  if (modal && modal.classList.contains('open')) {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+
 /* ===== Pre-fill form topic for callback CTA ===== */
 function prefillCallbackForm() {
   var topic = document.getElementById('topic');
