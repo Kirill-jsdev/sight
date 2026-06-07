@@ -150,46 +150,63 @@ function formatPhoneInput(el) {
   el.value = formatted;
 }
 
+/* ===== Google Sheets endpoint — вставьте URL вашего задеплоенного Apps Script ===== */
+var GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+
 /* ===== Feedback form submission ===== */
 function submitFeedbackForm(e) {
   e.preventDefault();
   var form = e.target;
 
-  /* Basic validation */
+  /* Validation */
   var valid = true;
   form.querySelectorAll('[required]').forEach(function (field) {
     field.classList.remove('error');
     if (field.type === 'checkbox') {
-      if (!field.checked) { valid = false; field.closest('.form-row').querySelector('.consent-label').style.color = 'var(--red)'; }
+      if (!field.checked) {
+        valid = false;
+        var lbl = field.closest('.form-row').querySelector('.consent-label');
+        if (lbl) lbl.style.color = 'var(--red)';
+      }
     } else {
       if (!field.value.trim()) { valid = false; field.classList.add('error'); }
     }
   });
   if (!valid) {
     var first = form.querySelector('.error, [required]:not(:checked)');
-    if (first) { first.focus(); }
+    if (first) first.focus();
     return;
   }
 
-  /* Submit via fetch (Netlify Forms) */
-  var formData = new FormData(form);
   var btn = form.querySelector('[type="submit"]');
   if (btn) { btn.disabled = true; btn.textContent = 'Отправляем...'; }
 
-  fetch('/', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams(formData).toString()
+  /* Collect data — field names map to Apps Script data.* keys */
+  var topicSelect = form.querySelector('#topic');
+  var payload = {
+    name:            form.querySelector('#fullname').value.trim(),
+    mobilePhone:     form.querySelector('#phone').value.trim(),
+    telegramContact: (form.querySelector('#telegram').value || '').trim(),
+    school:          form.querySelector('#school').value.trim(),
+    visitReason:     topicSelect ? topicSelect.options[topicSelect.selectedIndex].text : '',
+    comment:         (form.querySelector('#message').value || '').trim()
+  };
+
+  /* no-cors required — Apps Script doesn't return CORS headers for doPost */
+  fetch(GOOGLE_SCRIPT_URL, {
+    method:  'POST',
+    mode:    'no-cors',
+    headers: { 'Content-Type': 'text/plain' },
+    body:    JSON.stringify(payload)
   })
-  .then(function (res) {
-    if (!res.ok) throw new Error('Network response was not ok');
+  .then(function () {
     showFormSuccess();
     gaEvent('form_submit_success', { form: 'feedback' });
   })
   .catch(function () {
-    /* Fallback: show success anyway so user is not stuck */
-    showFormSuccess();
-    gaEvent('form_submit_fallback', { form: 'feedback' });
+    if (btn) { btn.disabled = false; btn.textContent = '📅 Заказать обратный звонок →'; }
+    alert('Ошибка отправки. Пожалуйста, позвоните нам или напишите в Telegram.');
+    gaEvent('form_submit_error', { form: 'feedback' });
   });
 }
 

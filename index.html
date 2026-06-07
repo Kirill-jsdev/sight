@@ -388,13 +388,11 @@
 
     <div class="callback-form-wrap">
       <div id="form-content">
-        <form name="feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="submitFeedbackForm(event)" novalidate>
-          <input type="hidden" name="form-name" value="feedback" />
-          <p style="display:none"><label>Не заполняйте: <input name="bot-field" /></label></p>
+        <form id="callbackForm" onsubmit="submitFeedbackForm(event)" novalidate>
 
           <div class="form-row">
             <label class="form-label" for="fullname">ФИО родителя <span class="req">*</span></label>
-            <input class="form-input" type="text" id="fullname" name="fullname" required autocomplete="name" />
+            <input class="form-input" type="text" id="fullname" name="fullname" placeholder="Иванова Мария Ивановна" required autocomplete="name" />
           </div>
           <div class="form-row">
             <label class="form-label" for="phone">Номер телефона <span class="req">*</span></label>
@@ -402,12 +400,16 @@
             <span class="form-hint">Формат: +998 90 123 45 67</span>
           </div>
           <div class="form-row">
+            <label class="form-label" for="telegram">Telegram <span class="opt">(необязательно)</span></label>
+            <input class="form-input" type="text" id="telegram" name="telegram" placeholder="@username или номер телефона" autocomplete="off" />
+          </div>
+          <div class="form-row">
             <label class="form-label" for="school">Школа ребёнка <span class="req">*</span></label>
             <input class="form-input" type="text" id="school" name="school" placeholder="Например: Школа №15, Ташкент" required />
           </div>
           <div class="form-row">
-            <label class="form-label" for="topic">Тема вопроса</label>
-            <select class="form-input form-select" id="topic" name="topic">
+            <label class="form-label" for="topic">Тема вопроса <span class="req">*</span></label>
+            <select class="form-input form-select" id="topic" name="topic" required>
               <option value="callback" selected>Заказать обратный звонок</option>
               <option value="results">Результаты ребёнка</option>
               <option value="glasses">Как правильно подобрать очки</option>
