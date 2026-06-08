@@ -153,6 +153,50 @@ function formatPhoneInput(el) {
 /* ===== Google Sheets endpoint — вставьте URL вашего задеплоенного Apps Script ===== */
 var GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwRMPPjXIzURK7h4IeW5OO2SbLLVlswgptA--vahZ_VhfwqASRZNxE34xgxRfF35hg7/exec';
 
+/* ===== Form validation helpers ===== */
+function showFieldError(field, msg) {
+  var row = field.closest('.form-row');
+  if (!row) return;
+  var el = row.querySelector('.form-error-msg');
+  if (!el) {
+    el = document.createElement('span');
+    el.className = 'form-error-msg';
+    var anchor = field.type === 'checkbox' ? (field.closest('.consent-label') || field) : field;
+    anchor.insertAdjacentElement('afterend', el);
+  }
+  el.textContent = msg;
+  el.style.display = 'block';
+}
+
+function clearFieldError(field) {
+  var row = field.closest('.form-row');
+  if (!row) return;
+  var el = row.querySelector('.form-error-msg');
+  if (el) el.style.display = 'none';
+}
+
+/* Clear errors on user interaction */
+(function () {
+  var form = document.getElementById('callbackForm');
+  if (!form) return;
+  form.addEventListener('input', function (e) {
+    if (e.target.hasAttribute('required')) {
+      e.target.classList.remove('error');
+      clearFieldError(e.target);
+    }
+  });
+  form.addEventListener('change', function (e) {
+    if (e.target.hasAttribute('required')) {
+      e.target.classList.remove('error');
+      clearFieldError(e.target);
+      if (e.target.type === 'checkbox') {
+        var lbl = e.target.closest('.form-row').querySelector('.consent-label');
+        if (lbl) lbl.style.color = '';
+      }
+    }
+  });
+}());
+
 /* ===== Feedback form submission ===== */
 function submitFeedbackForm(e) {
   e.preventDefault();
@@ -162,14 +206,22 @@ function submitFeedbackForm(e) {
   var valid = true;
   form.querySelectorAll('[required]').forEach(function (field) {
     field.classList.remove('error');
+    clearFieldError(field);
     if (field.type === 'checkbox') {
+      var lbl = field.closest('.form-row').querySelector('.consent-label');
       if (!field.checked) {
         valid = false;
-        var lbl = field.closest('.form-row').querySelector('.consent-label');
         if (lbl) lbl.style.color = 'var(--red)';
+        showFieldError(field, 'Необходимо дать согласие на обработку данных');
+      } else {
+        if (lbl) lbl.style.color = '';
       }
     } else {
-      if (!field.value.trim()) { valid = false; field.classList.add('error'); }
+      if (!field.value.trim()) {
+        valid = false;
+        field.classList.add('error');
+        showFieldError(field, 'Пожалуйста, заполните это поле');
+      }
     }
   });
   if (!valid) {
