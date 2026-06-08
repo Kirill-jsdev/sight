@@ -151,7 +151,7 @@ function formatPhoneInput(el) {
 }
 
 /* ===== Google Sheets endpoint — вставьте URL вашего задеплоенного Apps Script ===== */
-var GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+var GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwRMPPjXIzURK7h4IeW5OO2SbLLVlswgptA--vahZ_VhfwqASRZNxE34xgxRfF35hg7/exec';
 
 /* ===== Feedback form submission ===== */
 function submitFeedbackForm(e) {
